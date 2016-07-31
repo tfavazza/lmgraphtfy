@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "chart.js": "^2.2.1",
+    "handlebars": "^4.0.5",
     "jquery": "^2.2.0"
   },
   "devDependencies": {

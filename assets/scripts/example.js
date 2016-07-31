@@ -7,7 +7,7 @@ let ctx = document.getElementById("myChart");
 let bar = require('./charts/barChart.js');
 let scatter = require('./charts/scatterplot.js')
 
-let myChart = new Chart(ctx, scatter.scatterPlot);
+let myChart = new Chart(ctx, bar.barChart);
 
 
 module.exports = true;
