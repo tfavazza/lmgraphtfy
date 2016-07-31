@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+
+      <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navigation">
+            <ul class="nav navbar-nav">lm<i>graph</i>tfy</ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bd-sign-up-sign-in">
+                  <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
+                    Sign Up
+                  </a>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bd-sign-up-sign-in">
+                  Sign In
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+      <h1>Example</h1>
+      <canvas id="myChart" width="400" height="400"></canvas>
+
+
+      <div class="modal fade bd-sign-up-sign-in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <!-- tabs begins here -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li id="home-tab"role="presentation" class="col-md-12"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Sign In</a></li>
+              <li id="profile-tab" role="presentation" class="col-md-12"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Sign Up</a></li>
+              <li id="messages-tab" role="presentation" class="col-md-12"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Change Password</a></li>
+            </ul>
+            <!-- sign up tab -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane" id="profile">
+                <center><form id="sign-up">
+                  <input id="signup-email" type="text" name="credentials[email]" placeholder="Username">
+                  <input id="signup-password" type="password" name="credentials[password]" placeholder="Password">
+                  <input id="signup_passwordconf" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                  <div><input class="btn btn-default" type="submit" name="submit" value="Sign up!"></div>
+                  <div class="error"></div>
+                </form></center>
+              </div>
+              <!-- sign in tab -->
+              <div role="tabpanel" class="tab-pane" id="home">
+                <center><form id="sign-in">
+                  <input id="signin-email" type="text" name="credentials[email]" placeholder="Username">
+                  <input id="signin-password" type="password" name="credentials[password]" placeholder="Password">
+                  <input type="submit" class="btn btn-default" name="submit" value="Sign In">
+                  <div class="error"></div>
+                </form><center>
+              </div>
+              <!-- change password tab -->
+              <div role="tabpanel" class="tab-pane" id="messages">
+                <center><form id="change-password">
+                  <input id="password-old" type="password" name="passwords[old]" placeholder="Current Password">
+                  <input id="password-new" type="password" name="passwords[new]" placeholder="New Password">
+                  <div><input class="btn btn-default" type="submit" name="submit" value="Change Password"></div>
+                  <div class="error"></div>
+                </form></center>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </body>
+</html>
