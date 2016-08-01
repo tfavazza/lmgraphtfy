@@ -4,7 +4,16 @@
   <div>
     {{#each buttons}}
   <div class="col-md-auto">
-    <input type="submit" value="{{this.label}}" id="{{this.id}}" class="btn-lg btn btn-success">
+    <input type="submit" value="{{this.label}}" id="{{this.id}}" class="btn-lg btn btn-success {{../class}}">
   </div>
   {{/each}}
+{{#each form}}
+<form>
+  {{this}}<input type="text" id="this"></div>
+
+{{/each}}
+<div>
+{{#each submit}}
+  <input type="submit" value="{{this}}" class="btn btn-success graph-creation">
+  {{/each}} </div>
 </form>

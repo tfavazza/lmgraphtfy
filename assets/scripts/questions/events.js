@@ -8,20 +8,28 @@ const getFormFields = require('../../../lib/get-form-fields');
 const category = require('./category.js');
 const questions = require('../../styles/templates/questions.handlebars');
 
+const onGraphCreation = function(event) {
+  event.preventDefault();
+  console.log("HOLY HELL YOU DID IT");
+};
 
 
 const onButtonClick = function(event) {
+  console.log("yo");
   event.preventDefault();
   let lookup = event.target.id;
   console.log(lookup);
   $('#app').html(questions(category[lookup]));
+  $('.question').on('click', onButtonClick);
+  $('.graph-creation').on('click', onGraphCreation);
   //$('#chart-container').show();
 };
 
 
 
+
 const addHandlers = () => {
-  $('#clickable').on('click', onButtonClick);
+  $('#questionOneYes').on('click', onButtonClick);
 };
 //
 module.exports = {
