@@ -30,6 +30,7 @@ const failure = (error) => {
 
 
 const signInSuccess = () => {
+  console.log("Signed in!");
 };
 
 const signUpSuccess = () => {

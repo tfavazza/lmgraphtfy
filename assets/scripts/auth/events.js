@@ -5,10 +5,11 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
 //const index = require('../index.js');
-
+const category = require('../questions/category.js');
 
 const onSignUp = (event) => {
   event.preventDefault();
+  console.log("onSignUp was called!");
   let data = getFormFields(event.target);
   api.signUp(data)
   .done(ui.signUpSuccess)
@@ -39,11 +40,13 @@ const onChangePassword = (event) => {
 };
 
 
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
+  $('#question-1-yes').on('submit', category.onQuestionYes);
 };
 //
 module.exports = {

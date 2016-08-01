@@ -5,3 +5,10 @@
 
 // use require without a reference to ensure a file is bundled
 require('./example');
+let authEvents = require('./auth/events.js');
+let questionEvents = require('./questions/events.js');
+
+$(() => {
+  authEvents.addHandlers();
+  questionEvents.addHandlers();
+});

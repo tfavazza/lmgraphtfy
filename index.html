@@ -12,13 +12,15 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navigation">
-        <ul class="nav navbar-nav">lm<i>graph</i>tfy</ul>
+        <li>
+          <ul class="nav navbar-nav">lm<i>graph</i>tfy</ul>
+        </li>
         <ul class="nav navbar-nav navbar-right">
           <li>
             <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bd-sign-up-sign-in">
               <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
-                    Sign Up
-                  </a>
+                Sign Up
+              </a>
             </button>
           </li>
           <li>
@@ -32,25 +34,25 @@
   </nav>
 
 
-
-
   <h1>lm<i>graph</i>tfy</h1>
   <center>
     <div id="app">
-      <h1>Would you like to make a chart today?</h1>
-      <div class="col-md-2 col-md-offset-4">
-        <button id="question-1-yes"class="btn-lg btn btn-success">Yes</button>
-      </div>
-      <div class="col-md-2"><a href="http://www.google.com" class="btn-lg btn btn-danger">No</a></div>
+      <h1>Would you like to make a graph today?</h1>
+      <form>
+        <div class="col-md-2 col-md-offset-4">
+          <input type="submit" value="yes" id="question-1-yes" class="btn-lg btn btn-success">
+        </div>
+        <div class="col-md-2"><a href="http://www.google.com" class="btn-lg btn btn-danger">No</a></div>
     </div>
+    </form>
   </center>
   <div id="questions"></div>
   <div id="chart-container" hidden>
-  <canvas id="myChart" width="200" height="200"></canvas>
-</div>
+    <canvas id="myChart" width="200" height="200"></canvas>
+  </div>
 
 
-<!--MODAL START-->>
+  <!--MODAL START-->
   <div class="modal fade bd-sign-up-sign-in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
@@ -84,7 +86,7 @@
                 <input type="submit" class="btn btn-default" name="submit" value="Sign In">
                 <div class="error"></div>
               </form>
-              <center>
+            </center>
           </div>
           <!-- change password tab -->
           <div role="tabpanel" class="tab-pane" id="messages">
