@@ -1,5 +1,8 @@
 'use strict';
 
+//barcharts and stacked bars are the same, just set
+//barChart.options.stacked to true/false as needed
+
 let barChart =  {
     type: 'bar',
     data: {
@@ -16,7 +19,7 @@ let barChart =  {
                 'rgba(255, 159, 64, 0.2)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
+                'rgba(255,255,255,1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
@@ -27,6 +30,7 @@ let barChart =  {
         }]
     },
     options: {
+        stacked: false, //flip this for stacked bar
         scales: {
             yAxes: [{
                 ticks: {

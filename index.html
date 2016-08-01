@@ -2,13 +2,13 @@
 <html>
 
 <head>
-  <title>Example</title>
+  <title>lmgraphtfy</title>
 
   <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 
-<body class="container-fluid">
+<body class="container-fluid" style='background-color: indigo'>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navigation">
@@ -34,20 +34,23 @@
 
 
 
-  <h1>Example</h1>
+  <h1>lm<i>graph</i>tfy</h1>
   <center>
     <div id="app">
-      <h3>Would you like to make a chart today?</h3>
+      <h1>Would you like to make a chart today?</h1>
       <div class="col-md-2 col-md-offset-4">
-        <button class="btn btn-success">Yes</button>
+        <button id="question-1-yes"class="btn-lg btn btn-success">Yes</button>
       </div>
-      <div class="col-md-2"><a href="http://www.google.com" class="btn btn-danger">No</a></div>
+      <div class="col-md-2"><a href="http://www.google.com" class="btn-lg btn btn-danger">No</a></div>
     </div>
   </center>
-  <div>
-  <canvas id="myChart" width="200px" height="200px"></canvas>
+  <div id="questions"></div>
+  <div id="chart-container" hidden>
+  <canvas id="myChart" width="200" height="200"></canvas>
 </div>
 
+
+<!--MODAL START-->>
   <div class="modal fade bd-sign-up-sign-in" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
