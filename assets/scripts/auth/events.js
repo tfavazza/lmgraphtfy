@@ -5,7 +5,6 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
 //const index = require('../index.js');
-const category = require('../questions/category.js');
 
 const onSignUp = (event) => {
   event.preventDefault();
@@ -46,7 +45,6 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
-  $('#question-1-yes').on('submit', category.onQuestionYes);
 };
 //
 module.exports = {

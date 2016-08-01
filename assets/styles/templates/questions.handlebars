@@ -1,3 +1,10 @@
-{{#each this}}
-<div>{{this}}</div>
-{{/each}}
+
+<h1>{{h1}}</h1>
+<form>
+  <div>
+    {{#each buttons}}
+  <div class="col-md-auto">
+    <input type="submit" value="{{this.label}}" id="{{this.id}}" class="btn-lg btn btn-success">
+  </div>
+  {{/each}}
+</form>

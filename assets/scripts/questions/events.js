@@ -9,23 +9,19 @@ const category = require('./category.js');
 const questions = require('../../styles/templates/questions.handlebars');
 
 
-let data = [
-  "hi",
-  "hello",
-  "yes"
-];
 
-const onQuestionYes = function(event) {
+const onButtonClick = function(event) {
   event.preventDefault();
-  console.log("yo");
-  $('#questions').html(questions(data));
+  let lookup = event.target.id;
+  console.log(lookup);
+  $('#app').html(questions(category[lookup]));
   //$('#chart-container').show();
 };
 
 
 
 const addHandlers = () => {
-  $('#question-1-yes').on('click', onQuestionYes);
+  $('#clickable').on('click', onButtonClick);
 };
 //
 module.exports = {
