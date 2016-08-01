@@ -5,14 +5,21 @@ const getFormFields = require('../../../lib/get-form-fields');
 //const api = require('./api');
 //const ui = require('./ui');
 //const index = require('../index.js');
-const category = require('../questions/category.js');
+const category = require('./category.js');
+const questions = require('../../styles/templates/questions.handlebars');
 
+
+let data = [
+  "hi",
+  "hello",
+  "yes"
+];
 
 const onQuestionYes = function(event) {
   event.preventDefault();
   console.log("yo");
-  $('#questions').html("Hello?");
-  $('#chart-container').show();
+  $('#questions').html(questions(data));
+  //$('#chart-container').show();
 };
 
 
