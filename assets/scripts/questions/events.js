@@ -23,8 +23,8 @@ const onGraphCreation = function(event) {
   let chartData = buildChart.buildBarChart(inputs);
   console.log(chartData);
   console.log("HOLY HELL YOU DID IT");
-  let myChart = new Chart(ctx, chartData);
   $('#chart-container').show();
+  let myChart = new Chart(ctx, chartData);
 };
 
 
