@@ -10,7 +10,12 @@ const questions = require('../../styles/templates/questions.handlebars');
 
 const onGraphCreation = function(event) {
   event.preventDefault();
+  console.log(event.target);
+  let maybe = getFormFields(event.target);
+  console.log(maybe);
   console.log("HOLY HELL YOU DID IT");
+  $('#chart-container').show();
+
 };
 
 
@@ -18,11 +23,10 @@ const onButtonClick = function(event) {
   console.log("yo");
   event.preventDefault();
   let lookup = event.target.id;
-  console.log(lookup);
   $('#app').html(questions(category[lookup]));
   $('.question').on('click', onButtonClick);
-  $('.graph-creation').on('click', onGraphCreation);
-  //$('#chart-container').show();
+  //$('#graph-creation').parents('form').on('submit', onGraphCreation);
+  //
 };
 
 
@@ -30,6 +34,7 @@ const onButtonClick = function(event) {
 
 const addHandlers = () => {
   $('#questionOneYes').on('click', onButtonClick);
+  $('#app').on('submit', onGraphCreation);
 };
 //
 module.exports = {

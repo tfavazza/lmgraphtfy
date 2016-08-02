@@ -3,17 +3,24 @@
 <form>
   <div>
     {{#each buttons}}
-  <div class="col-md-auto">
-    <input type="submit" value="{{this.label}}" id="{{this.id}}" class="btn-lg btn btn-success {{../class}}">
+    <div class="col-md-auto">
+      <input type="submit"
+           value="{{this.label}}"
+           id="{{this.id}}"
+           class="btn-lg btn btn-success {{../class}}">
+    </div>
+    {{/each}}
+    {{#each form}}
+    <form id="make-a-graph" class="{{this.id}}">
+      {{this.label}}
+      <input type="text"
+           name="credentials[{{this.id}}]"
+           id="{{this.id}}">
   </div>
+    {{/each}}
+  {{#each submit}}
+    <input type="submit"
+           value="{{this}}"
+           class="btn btn-success graph-creation">
   {{/each}}
-{{#each form}}
-<form>
-  {{this}}<input type="text" id="this"></div>
-
-{{/each}}
-<div>
-{{#each submit}}
-  <input type="submit" value="{{this}}" class="btn btn-success graph-creation">
-  {{/each}} </div>
 </form>

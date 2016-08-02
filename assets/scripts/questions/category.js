@@ -25,11 +25,16 @@ let questionOneYes = {
 };
 
 let comparison = {
-  h1: "comparisonquestion",
-  class: "question",
+  h1: "Do you have few or many datapoints?",
   buttons: {
-    button1: "comparisonanswer",
-    button2: "comparisonanswer",
+    button1: {
+      label: "Few",
+      id: "columnChart"
+    },
+    button2: {
+      label: "Many",
+      id: "lineChart"
+    }
   }
 };
 
@@ -39,11 +44,11 @@ let relational = {
   buttons: {
     button1: {
       label: "Two variables",
-      id: "twoVariables"
+      id: "scatterPlot"
     },
     button2: {
       label: "Three variables",
-      id: "threeVariables"
+      id: "bubble"
     }
   }
 
@@ -61,8 +66,6 @@ let composition = {
       id: "threeVariablesComposition"
     }
   }
-
-
 };
 
 let distribution = {
@@ -70,24 +73,67 @@ let distribution = {
   class: "question",
   buttons: {
     button1: {
-      label: "Two variables",
-      id: "twoVariablesDistribution"
+      label: "One variable",
+      id: "oneVariablesDistribution"
     },
     button2: {
-      label: "Three variables",
-      id: "threeVariablesDistribution"
+      label: "Two variables",
+      id: "scatterPlot"
     }
   }
-
-
 };
 
-let twoVariables = {
+let oneVariablesDistribution = {
+  class: "question",
+  h1: "Do you have few or many datapoints?",
+  buttons:  {
+    button1: {
+      label: "Few",
+      id: "barChart"
+      },
+    button2: {
+      label: "Many",
+      id: "columnChart"
+    }
+  }
+};
+
+let barChart = {
   class: "answer",
-  h1: "You need a scatter plot!",
+  h1: "You need a Bar Graph!",
   form: {
-    form1: "X axis data, separated by commas:",
-    form2: "Y axis data, separated by commas:"
+    label: "X axis data, separated by commas:",
+    data: "Y axis data, separated by commas:"
+  },
+  submit: {
+    submit: "submit"
+  }
+};
+
+let columnChart = {
+  class: "answer",
+  h1: "You need a Column Graph!",
+  form: {
+    label: "X axis data, separated by commas:",
+    data: "Y axis data, separated by commas:"
+  },
+  submit: {
+    submit: "submit"
+  }
+};
+
+let scatterPlot = {
+  class: "answer",
+  h1: "You need a Scatter Graph!",
+  form: {
+    form1: {
+      label: "X axis data, separated by commas:",
+      id: "label"
+    },
+    form2: {
+      label: "Y axis data, separated by commas:",
+      id: "data"
+    }
   },
   submit: {
     submit: "submit"
@@ -101,5 +147,9 @@ module.exports = {
   relational,
   comparison,
   distribution,
-  twoVariables,
+  scatterPlot,
+  barChart,
+  oneVariablesDistribution,
+  columnChart,
+
 };

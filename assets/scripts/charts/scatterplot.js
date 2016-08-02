@@ -7,25 +7,14 @@ let scatterPlot = {
   type: 'line',
   data: {
     datasets: [{
-      label: 'Scatter Dataset',
-      data: [{
-        x: -10,
-        y: 0
-      }, {
-        x: 0,
-        y: 10
-      }, {
-        x: 10,
-        y: 5
-      }, {
-        x: 6,
-        y: 1
-      },
-      {
-        x: 4,
-        y: 3
-      }
-    ]
+      label: 'Dataset',
+      data: [
+        {x: -10, y: 0},
+        {x: 0, y: 10},
+        {x: 10, y: 5},
+        {x: 6,y: 1},
+        {x: 4,y: 3}
+      ]
     }]
   },
   options: {
