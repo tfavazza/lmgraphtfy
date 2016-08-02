@@ -1,6 +1,6 @@
 'use strict';
 
-let completedChart = {
+let completedBarChart = {
   type: 'bar',
   data: {
     datasets:[{
@@ -39,18 +39,56 @@ let completedChart = {
 
 };
 
-let buildBarChart = function(inputs){
-  let labels = inputs.credentials.labels.split(",");
-  let numbers = inputs.credentials.data.split(",").map(Number);
-  completedChart.data.labels = labels;
-  completedChart.data.datasets.data = numbers;
-  console.log(completedChart);
-  return completedChart;
+
+let completedScatterPlot = {
+  type: 'line',
+  data: {
+    datasets: [{
+      label: 'Scatter Graph',
+      data: [
+      ]
+    }]
+  },
+  options: {
+    showLines: false, //change this to true for line
+    scales: {
+      xAxes: [{
+        type: 'linear',
+        position: 'bottom'
+      }]
+    }
+  }
 };
 
 
+let buildBarChart = function(inputs){
+  let labels = inputs.credentials.labels.split(",");
+  let numbers = inputs.credentials.data.split(",").map(Number);
+  completedBarChart.data.labels = labels;
+  completedBarChart.data.datasets.data = numbers;
+  console.log(completedBarChart);
+  return completedBarChart;
+};
+
+
+let buildScatterChart = function(inputs) {
+  let xData = inputs.credentials.x.split(",").map(Number);
+  let yData = inputs.credentials.y.split(",").map(Number);
+  let dataArray = [];
+  for(let i=0; i<xData.length; i++){
+    dataArray.push({
+      x: xData[i],
+      y: yData[i]
+    });
+  }
+  completedScatterPlot.data.datasets.data = dataArray;
+  console.log(completedScatterPlot);
+  return completedScatterPlot;
+};
+
 module.exports = {
   buildBarChart,
+  buildScatterChart
 };
 
 

@@ -12,6 +12,7 @@ Chart.defaults.global.defaultFontColor = '#FFF';
 Chart.defaults.global.defaultFontSize = 22;
 
 
+
 //let myChart = new Chart(ctx, bar.barChart);
 
 module.exports = myChart;

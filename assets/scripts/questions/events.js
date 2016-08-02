@@ -13,19 +13,38 @@ let ctx = document.getElementById("myChart");
 
 Chart.defaults.global.defaultFontColor = '#FFF';
 Chart.defaults.global.defaultFontSize = 22;
+Chart.defaults.global.elements.line.borderColor = '#FFF';
 
+
+const graphOptionToCreate = function(inputs) {
+  let charts;
+  switch(inputs.credentials.type) {
+    case 'bar':
+    console.log("made a bar chart!");
+     charts = buildChart.buildBarChart(inputs);
+     break;
+    case 'line':
+      console.log("Line charts?");
+      charts = buildChart.buildScatterChart(inputs);
+      break;
+    default:
+      console.log('frown');
+  }
+  return charts;
+};
 
 
 const onGraphCreation = function(event) {
   event.preventDefault();
   let inputs = getFormFields(event.target);
   console.log(inputs);
-  let chartData = buildChart.buildBarChart(inputs);
+  let chartData = graphOptionToCreate(inputs);
   console.log(chartData);
-  console.log("HOLY HELL YOU DID IT");
   $('#chart-container').show();
   let myChart = new Chart(ctx, chartData);
 };
+
+
 
 
 const onButtonClick = function(event) {

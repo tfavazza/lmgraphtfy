@@ -116,7 +116,8 @@ let barChart = {
   },
   submit: {
     submit: "submit"
-  }
+  },
+  type: "bar"
 };
 
 let columnChart = {
@@ -134,7 +135,8 @@ let columnChart = {
   },
   submit: {
     submit: "submit"
-  }
+  },
+  type: "bar"
 };
 
 let scatterPlot = {
@@ -152,7 +154,8 @@ let scatterPlot = {
   },
   submit: {
     submit: "submit"
-  }
+  },
+  type: "line"
 };
 
 
