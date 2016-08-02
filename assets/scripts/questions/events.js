@@ -8,6 +8,13 @@ const getFormFields = require('../../../lib/get-form-fields');
 const category = require('./category.js');
 const questions = require('../../styles/templates/questions.handlebars');
 const buildChart = require('../charts/build-charts.js');
+let Chart = require('../../../node_modules/chart.js');
+let ctx = document.getElementById("myChart");
+
+Chart.defaults.global.defaultFontColor = '#FFF';
+Chart.defaults.global.defaultFontSize = 22;
+
+
 
 const onGraphCreation = function(event) {
   event.preventDefault();
@@ -16,8 +23,8 @@ const onGraphCreation = function(event) {
   let chartData = buildChart.buildBarChart(inputs);
   console.log(chartData);
   console.log("HOLY HELL YOU DID IT");
+  let myChart = new Chart(ctx, chartData);
   $('#chart-container').show();
-
 };
 
 

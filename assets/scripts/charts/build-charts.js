@@ -4,7 +4,9 @@ let completedChart = {
   type: 'bar',
   data: {
     datasets:[{
+      labels: [],
       label: 'Bar Chart',
+      data: [],
       backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -39,9 +41,10 @@ let completedChart = {
 
 let buildBarChart = function(inputs){
   let labels = inputs.credentials.labels.split(",");
-  let numbers = inputs.credentials.data.split(",");
+  let numbers = inputs.credentials.data.split(",").map(Number);
   completedChart.data.labels = labels;
   completedChart.data.datasets.data = numbers;
+  console.log(completedChart);
   return completedChart;
 };
 
