@@ -1,6 +1,6 @@
 'use strict';
 
-
+//question area
 let questionOneYes = {
   h1: "What is your data like?",
   class: "question",
@@ -98,12 +98,21 @@ let oneVariablesDistribution = {
   }
 };
 
+
+//begin graph creation area
+
 let barChart = {
   class: "answer",
   h1: "You need a Bar Graph!",
   form: {
-    label: "X axis data, separated by commas:",
-    data: "Y axis data, separated by commas:"
+    form1: {
+      label: "X axis data, separated by commas:",
+      id: "labels"
+    },
+    form2: {
+      label: "Y axis data, separated by commas:",
+      id: "data"
+    }
   },
   submit: {
     submit: "submit"
@@ -114,8 +123,14 @@ let columnChart = {
   class: "answer",
   h1: "You need a Column Graph!",
   form: {
-    label: "X axis data, separated by commas:",
-    data: "Y axis data, separated by commas:"
+    form1: {
+      label: "X axis data, separated by commas:",
+      id: "labels"
+    },
+    form2: {
+      label: "Y axis data, separated by commas:",
+      id: "data"
+    }
   },
   submit: {
     submit: "submit"
@@ -128,11 +143,11 @@ let scatterPlot = {
   form: {
     form1: {
       label: "X axis data, separated by commas:",
-      id: "label"
+      id: "x"
     },
     form2: {
       label: "Y axis data, separated by commas:",
-      id: "data"
+      id: "y"
     }
   },
   submit: {

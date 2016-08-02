@@ -7,12 +7,14 @@ const getFormFields = require('../../../lib/get-form-fields');
 //const index = require('../index.js');
 const category = require('./category.js');
 const questions = require('../../styles/templates/questions.handlebars');
+const buildChart = require('../charts/build-charts.js');
 
 const onGraphCreation = function(event) {
   event.preventDefault();
-  console.log(event.target);
-  let maybe = getFormFields(event.target);
-  console.log(maybe);
+  let inputs = getFormFields(event.target);
+  console.log(inputs);
+  let chartData = buildChart.buildBarChart(inputs);
+  console.log(chartData);
   console.log("HOLY HELL YOU DID IT");
   $('#chart-container').show();
 
