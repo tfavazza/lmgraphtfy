@@ -52,7 +52,6 @@ let buildBarChart = function(inputs){
   return completedBarChart;
 };
 
-
 let buildScatterChart = function(inputs) {
   let xData = inputs.credentials.x.split(",").map(Number);
   let yData = inputs.credentials.y.split(",").map(Number);
@@ -102,45 +101,58 @@ let buildScatterChart = function(inputs) {
   return completedScatterPlot;
 };
 
-module.exports = {
-  buildBarChart,
-  buildScatterChart
+let buildLineChart = function(inputs) {
+  let xData = inputs.credentials.x.split(",").map(Number);
+  let yData = inputs.credentials.y.split(",").map(Number);
+  let dataArray = [];
+  for(let i=0; i<xData.length; i++){
+    dataArray.push({
+      x: xData[i],
+      y: yData[i]
+    });
+  }
+  let completedLinePlot = {
+    type: 'line',
+    borderColor: '#28cbee',
+    data: {
+      datasets: [{
+        label: 'Line Graph',
+        data: dataArray
+      }]
+    },
+    options: {
+      showLine: true,
+      scales: {
+        xAxes: [{
+          gridLines: {
+            color: '#d3d3d3',
+            zeroLineColor: '#d3d3d3'
+          },
+          type: 'linear',
+          position: 'bottom',
+          ticks: {
+            beginAtZero: true
+          }
+        }],
+        yAxes: [{
+          gridLines: {
+            color:'#d3d3d3',
+            zeroLineColor:'#d3d3d3'
+          },
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+
+      }
+    }
+  };
+  console.log(completedLinePlot);
+  return completedLinePlot;
 };
 
-
-// let xData = [];
-// let yData = [];
-//
-//
-// const buildDataSet = function(coordinates) {
-//   xData = coordinates.split(',');
-//   for(let i=0; i < coordinates.length; i++) {
-//     scatterPlot.data.datasets.data[i] = coordinates[i];
-//   }
-// }
-//
-//
-//
-// const buildScatterPlot = function(inputs) {
-//
-//
-//   let scatterPlot = {
-//     type: inputs.type,
-//     data: {
-//       datasets: [{
-//         label: 'Dataset',
-//         data: []
-//       }]
-//     },
-//     options: {
-//       showLines: inputs.showLines, //change this to true for line
-//       scales: {
-//         xAxes: [{
-//           type: `${inputs.type}`,
-//           position: 'bottom'
-//         }]
-//       }
-//     }
-//   };
-//   return scatterPlot;
-// };
+module.exports = {
+  buildBarChart,
+  buildScatterChart,
+  buildLineChart,
+};

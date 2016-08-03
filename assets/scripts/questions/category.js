@@ -26,6 +26,7 @@ let questionOneYes = {
 
 let comparison = {
   h1: "Do you have few or many datapoints?",
+  class: "question",
   buttons: {
     button1: {
       label: "Few",
@@ -56,6 +57,7 @@ let relational = {
 
 let composition = {
   h1: "How many variables do you have?",
+  class: "question",
   buttons: {
     button1: {
       label: "Two variables",
@@ -155,6 +157,25 @@ let scatterPlot = {
   submit: {
     submit: "submit"
   },
+  type: "scatter"
+};
+
+let lineChart = {
+  class: "answer",
+  h1: "You should use a Line Graph!",
+  form: {
+    form1: {
+      label: "X axis data, separated by commas:",
+      id: "x"
+    },
+    form2: {
+      label: "Y axis data, separated by commas:",
+      id: "y"
+    },
+  },
+  submit: {
+    submit: "submit"
+  },
   type: "line"
 };
 
@@ -169,5 +190,6 @@ module.exports = {
   barChart,
   oneVariablesDistribution,
   columnChart,
+  lineChart,
 
 };

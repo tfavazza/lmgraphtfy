@@ -13,9 +13,9 @@ let ctx = document.getElementById("myChart");
 
 Chart.defaults.global.defaultFontColor = '#FFF';
 Chart.defaults.global.defaultFontSize = 22;
-Chart.defaults.global.elements.line.backgroundColor = '#FFF';
+//Chart.defaults.global.elements.line.backgroundColor;
 Chart.defaults.global.defaultColor = '#FFF';
-Chart.defaults.global.elements.point.backgroundColor = '#FFF';
+Chart.defaults.global.elements.point.backgroundColor = '#28cbee';
 Chart.defaults.global.elements.point.radius = 7;
 
 
@@ -28,6 +28,9 @@ const graphOptionToCreate = function(inputs) {
      break;
     case 'line':
       console.log("Line charts?");
+      charts = buildChart.buildLineChart(inputs);
+      break;
+    case 'scatter':
       charts = buildChart.buildScatterChart(inputs);
       break;
     default:
