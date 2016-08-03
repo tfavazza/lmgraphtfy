@@ -114,7 +114,7 @@ let buildBubbleChart = function(inputs) {
     dataArray.push({
       x: xData[i],
       y: yData[i],
-      r: rData[i]
+      r: rData[i] * 10
     });
   }
   let completedBubbleChart = {

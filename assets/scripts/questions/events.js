@@ -85,10 +85,26 @@ const onSaveGraph = function(event) {
   .fail(graphUi.SaveGraphFailure);
 };
 
+const onDisplayAllGraphs = function(event) {
+  event.preventDefault();
+  graphApi.displayAllGraphs()
+  .done(graphUi.displayAllGraphsSuccess)
+  .fail(graphUi.displayAllGraphsFailure);
+};
+
+const onDisplayUsersGraphs = function(event) {
+  event.preventDefault();
+  graphApi.displayUsersGraphs()
+  .done(graphUi.displayUsersGraphsSuccess)
+  .fail(graphUi.displayUsersGraphsFailure);
+};
+
 const addHandlers = () => {
   $('#questionOneYes').on('click', onButtonClick);
   $('#app').on('submit', onGraphCreation);
   $('#save-graph').on('click', onSaveGraph);
+  $('#all-graphs').on('click', onDisplayAllGraphs);
+  $('#my-graphs').on('click', onDisplayUsersGraphs);
 };
 //
 module.exports = {

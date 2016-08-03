@@ -15,9 +15,25 @@ const saveGraph = (data) => {
   });
 };
 
+const displayAllGraphs = () => {
+  return $.ajax({
+    url: app.host + '/graphs/',
+    method: 'GET',
+    contentType: 'application/json'
+  });
+};
+
+const displayUsersGraphs = () => {
+  return $.ajax({
+    url: app.host + '/graphs/' + app.user.graphs, //is this right?
+    method: 'GET',
+    contentType: 'application/json'
+  });
+};
+
 const deleteGraph = () => {
   return $.ajax({
-    url: app.host + '/graphs/' + app.user.graph.id,
+    url: app.host + '/graphs/' + app.user.graphs.id,
     method: "DELETE",
     headers: {
       Authorization: 'Token token=' + app.user.token,
@@ -41,5 +57,7 @@ const editGraph = (data) => {
 module.exports = {
   saveGraph,
   deleteGraph,
-  editGraph
+  editGraph,
+  displayAllGraphs,
+  displayUsersGraphs
 };
