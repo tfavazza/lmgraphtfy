@@ -49,7 +49,7 @@ let relational = {
     },
     button2: {
       label: "Three variables",
-      id: "bubble"
+      id: "bubbleChart"
     }
   }
 
@@ -102,6 +102,29 @@ let oneVariablesDistribution = {
 
 
 //begin graph creation area
+
+let bubbleChart= {
+  class: "answer",
+  h1: "You need a Bubble Graph!",
+  form: {
+    form1: {
+      label: "X axis data, separated by commas:",
+      id: "x"
+    },
+    form2: {
+      label: "Y axis data, separated by commas:",
+      id: "y"
+    },
+    form3: {
+      label: "size of each bubble, separated by commas:",
+      id: "r"
+    },
+  },
+  submit: {
+    submit: "submit"
+  },
+  type: "bubble"
+};
 
 let barChart = {
   class: "answer",
@@ -191,5 +214,6 @@ module.exports = {
   oneVariablesDistribution,
   columnChart,
   lineChart,
+  bubbleChart
 
 };

@@ -101,6 +101,63 @@ let buildScatterChart = function(inputs) {
   return completedScatterPlot;
 };
 
+
+let buildBubbleChart = function(inputs) {
+  let xData = inputs.credentials.x.split(",").map(Number);
+  let yData = inputs.credentials.y.split(",").map(Number);
+  let rData = inputs.credentials.r.split(",").map(Number);
+  let dataArray = [];
+  for(let i=0; i<xData.length; i++){
+    dataArray.push({
+      x: xData[i],
+      y: yData[i],
+      r: rData[i]
+    });
+  }
+  let completedBubbleChart = {
+    type: 'bubble',
+    data: {
+      datasets: [{
+        label: 'Bubble Graph',
+        data: dataArray,
+        backgroundColor:"#FF6384",
+        hoverBackgroundColor: "#FF6384",
+
+      }]
+    },
+    options: {
+      showLines: false, //change this to true for line
+      scales: {
+        xAxes: [{
+          gridLines: {
+            color: '#d3d3d3',
+            zeroLineColor: '#d3d3d3'
+          },
+          type: 'linear',
+          position: 'bottom',
+          ticks: {
+            beginAtZero: true
+          }
+        }],
+        yAxes: [{
+          gridLines: {
+            color:'#d3d3d3',
+            zeroLineColor:'#d3d3d3'
+          },
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+
+      }
+    }
+  };
+  console.log(completedBubbleChart);
+  return completedBubbleChart;
+};
+
+
+
 let buildLineChart = function(inputs) {
   let xData = inputs.credentials.x.split(",").map(Number);
   let yData = inputs.credentials.y.split(",").map(Number);
@@ -155,4 +212,5 @@ module.exports = {
   buildBarChart,
   buildScatterChart,
   buildLineChart,
+  buildBubbleChart
 };

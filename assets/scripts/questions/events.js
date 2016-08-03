@@ -12,7 +12,7 @@ let Chart = require('../../../node_modules/chart.js');
 let ctx = document.getElementById("myChart");
 
 Chart.defaults.global.defaultFontColor = '#FFF';
-Chart.defaults.global.defaultFontSize = 22;
+Chart.defaults.global.defaultFontSize = 16;
 //Chart.defaults.global.elements.line.backgroundColor;
 Chart.defaults.global.defaultColor = '#FFF';
 Chart.defaults.global.elements.point.backgroundColor = '#28cbee';
@@ -23,6 +23,7 @@ const graphOptionToCreate = function(inputs) {
   let charts;
   switch(inputs.credentials.type) {
     case 'bar':
+    case 'column':
     console.log("made a bar chart!");
      charts = buildChart.buildBarChart(inputs);
      break;
@@ -32,6 +33,9 @@ const graphOptionToCreate = function(inputs) {
       break;
     case 'scatter':
       charts = buildChart.buildScatterChart(inputs);
+      break;
+    case 'bubble':
+      charts = buildChart.buildBubbleChart(inputs);
       break;
     default:
       console.log('frown');
