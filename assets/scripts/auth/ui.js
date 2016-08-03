@@ -29,7 +29,8 @@ const failure = (error) => {
 };
 
 
-const signInSuccess = () => {
+const signInSuccess = (data) => {
+  app.user = data.user;
   console.log("Signed in!");
 };
 

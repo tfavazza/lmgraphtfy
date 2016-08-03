@@ -2,8 +2,9 @@
 //
 const getFormFields = require('../../../lib/get-form-fields');
 
-//const api = require('./api');
-//const ui = require('./ui');
+const app = require('../app.js')
+const api = require('./api');
+const ui = require('./ui');
 //const index = require('../index.js');
 const category = require('./category.js');
 const questions = require('../../styles/templates/questions.handlebars');
@@ -18,6 +19,12 @@ Chart.defaults.global.defaultColor = '#FFF';
 Chart.defaults.global.elements.point.backgroundColor = '#28cbee';
 Chart.defaults.global.elements.point.radius = 7;
 
+const onSaveGraph = function(event) {
+  event.preventDefault();
+  api.saveGraph(app.chartData)
+  .done(ui.saveGraphSuccess)
+  .fail(ui.SaveGraphFailure);
+};
 
 const graphOptionToCreate = function(inputs) {
   let charts;
@@ -39,6 +46,7 @@ const graphOptionToCreate = function(inputs) {
       break;
     default:
       console.log('frown');
+      break;
   }
   return charts;
 };
@@ -47,16 +55,12 @@ const graphOptionToCreate = function(inputs) {
 const onGraphCreation = function(event) {
   event.preventDefault();
   let inputs = getFormFields(event.target);
-  //console.log(inputs);
   let chartData = graphOptionToCreate(inputs);
-  
-  //console.log(chartData);
   $('#chart-container').show();
   let myChart = new Chart(ctx, chartData);
-  console.log("made a chart?");
-  console.log(myChart);
   myChart.destroy();
   myChart.update(ctx, chartData);
+  app.chartData = chartData;
 };
 
 
@@ -67,9 +71,9 @@ const onButtonClick = function(event) {
   let lookup = event.target.id;
   $('#app').html(questions(category[lookup]));
   $('.question').on('click', onButtonClick);
-  //$('#graph-creation').parents('form').on('submit', onGraphCreation);
-  //
 };
+
+
 
 
 
@@ -77,6 +81,7 @@ const onButtonClick = function(event) {
 const addHandlers = () => {
   $('#questionOneYes').on('click', onButtonClick);
   $('#app').on('submit', onGraphCreation);
+  $('#save-graph').on('click', onSaveGraph);
 };
 //
 module.exports = {
