@@ -28,16 +28,20 @@ const graphOptionToCreate = function(inputs) {
     case 'column':
     console.log("making a bar chart!");
      charts = buildChart.buildBarChart(inputs);
+     chartDataToSend = JSON.stringify(charts);
      break;
     case 'line':
       console.log("Line charts?");
       charts = buildChart.buildLineChart(inputs);
+      chartDataToSend = JSON.stringify(charts);
       break;
     case 'scatter':
       charts = buildChart.buildScatterChart(inputs);
+      chartDataToSend = JSON.stringify(charts);
       break;
     case 'bubble':
       charts = buildChart.buildBubbleChart(inputs);
+      chartDataToSend = JSON.stringify(charts);
       break;
     default:
       console.log('frown');
@@ -50,7 +54,7 @@ const graphOptionToCreate = function(inputs) {
 const onGraphCreation = function(event) {
   event.preventDefault();
   let inputs = getFormFields(event.target);
-  chartDataToSend = inputs;
+  //chartDataToSend = inputs;
   let chartData = graphOptionToCreate(inputs);
   $('#chart-container').show();
   let myChart = new Chart(ctx, chartData);
@@ -65,13 +69,13 @@ const onButtonClick = function(event) {
   $('#app').html(questions(category[lookup]));
   $('.question').on('click', onButtonClick);
 };
-
+    //  "graphJSON": JSON.stringify(chartDataToSend) <---if only grabbing inputs
 
 const onSaveGraph = function(event) {
   event.preventDefault();
   let chartDataFormatted = {
     "graph": {
-      "graphJSON": JSON.stringify(chartDataToSend)
+      "graphJSON": chartDataToSend
     }
   };
   chartDataFormatted = JSON.stringify(chartDataFormatted);
