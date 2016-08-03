@@ -2,9 +2,9 @@
 //
 const getFormFields = require('../../../lib/get-form-fields');
 
-const app = require('../app.js')
-const api = require('./api');
-const ui = require('./ui');
+const app = require('../app.js');
+const graphApi = require('./graphApi');
+const graphUi = require('./graphUi');
 //const index = require('../index.js');
 const category = require('./category.js');
 const questions = require('../../styles/templates/questions.handlebars');
@@ -19,12 +19,7 @@ Chart.defaults.global.defaultColor = '#FFF';
 Chart.defaults.global.elements.point.backgroundColor = '#28cbee';
 Chart.defaults.global.elements.point.radius = 7;
 
-const onSaveGraph = function(event) {
-  event.preventDefault();
-  api.saveGraph(app.chartData)
-  .done(ui.saveGraphSuccess)
-  .fail(ui.SaveGraphFailure);
-};
+let chartDataToSend;
 
 const graphOptionToCreate = function(inputs) {
   let charts;
@@ -55,15 +50,13 @@ const graphOptionToCreate = function(inputs) {
 const onGraphCreation = function(event) {
   event.preventDefault();
   let inputs = getFormFields(event.target);
+  chartDataToSend = inputs;
   let chartData = graphOptionToCreate(inputs);
   $('#chart-container').show();
   let myChart = new Chart(ctx, chartData);
   myChart.destroy();
   myChart.update(ctx, chartData);
-  app.chartData = chartData;
 };
-
-
 
 
 const onButtonClick = function(event) {
@@ -74,9 +67,19 @@ const onButtonClick = function(event) {
 };
 
 
-
-
-
+const onSaveGraph = function(event) {
+  event.preventDefault();
+  let chartDataFormatted = {
+    "graph": {
+      "graphJSON": JSON.stringify(chartDataToSend)
+    }
+  };
+  chartDataFormatted = JSON.stringify(chartDataFormatted);
+  console.log(chartDataFormatted);
+  graphApi.saveGraph(chartDataFormatted)
+  .done(graphUi.saveGraphSuccess)
+  .fail(graphUi.SaveGraphFailure);
+};
 
 const addHandlers = () => {
   $('#questionOneYes').on('click', onButtonClick);

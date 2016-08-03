@@ -10,6 +10,8 @@ const saveGraph = (data) => {
       Authorization: 'Token token=' + app.user.token,
     },
     data: data,
+    contentType: 'application/json',
+    dataType: 'json'
   });
 };
 
@@ -28,6 +30,7 @@ const editGraph = (data) => {
     url: app.host + '/graphs/' + app.user.graph.id,
     method: "PATCH",
     headers: {
+      'Content-Type': 'application/json',
       Authorization: 'Token token=' + app.user.token,
     },
     data: data,
