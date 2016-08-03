@@ -47,5 +47,4 @@ let barChart =  {
 
 
 module.exports = {
-  barChart
 };

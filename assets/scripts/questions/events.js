@@ -24,7 +24,7 @@ const graphOptionToCreate = function(inputs) {
   switch(inputs.credentials.type) {
     case 'bar':
     case 'column':
-    console.log("made a bar chart!");
+    console.log("making a bar chart!");
      charts = buildChart.buildBarChart(inputs);
      break;
     case 'line':
@@ -47,11 +47,14 @@ const graphOptionToCreate = function(inputs) {
 const onGraphCreation = function(event) {
   event.preventDefault();
   let inputs = getFormFields(event.target);
-  console.log(inputs);
+  //console.log(inputs);
   let chartData = graphOptionToCreate(inputs);
-  console.log(chartData);
+  //console.log(chartData);
   $('#chart-container').show();
   let myChart = new Chart(ctx, chartData);
+  console.log("made a chart?");
+  console.log(myChart);
+  myChart.destroy();
   myChart.update(ctx, chartData);
 };
 

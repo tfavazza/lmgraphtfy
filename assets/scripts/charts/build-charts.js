@@ -4,13 +4,16 @@
 
 
 let buildBarChart = function(inputs){
+  console.log("Bar chart being made!");
   let labeling = inputs.credentials.labels.split(",");
+  console.log(labeling);
   let numbers = inputs.credentials.data.split(",").map(Number);
+  console.log(numbers);
   let completedBarChart = {
     type: 'bar',
     data: {
+      labels: labeling,
       datasets:[{
-        labels: labeling,
         label: 'Bar Graph',
         data: numbers,
         backgroundColor: [
@@ -28,7 +31,7 @@ let buildBarChart = function(inputs){
             'rgba(75, 192, 192, 1)',
             'rgba(153, 102, 255, 1)',
             'rgba(255, 159, 64, 1)'
-          ],
+        ],
           borderWidth: 1
       }]
     },
@@ -48,7 +51,7 @@ let buildBarChart = function(inputs){
     }
 
   };
-  console.log(completedBarChart.data.datasets.data);
+  console.log(completedBarChart);
   return completedBarChart;
 };
 
