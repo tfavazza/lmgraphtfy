@@ -49,6 +49,7 @@ const onGraphCreation = function(event) {
   let inputs = getFormFields(event.target);
   //console.log(inputs);
   let chartData = graphOptionToCreate(inputs);
+  
   //console.log(chartData);
   $('#chart-container').show();
   let myChart = new Chart(ctx, chartData);

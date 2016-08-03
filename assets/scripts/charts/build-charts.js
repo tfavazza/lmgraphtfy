@@ -159,6 +159,57 @@ let buildBubbleChart = function(inputs) {
   return completedBubbleChart;
 };
 
+let buildStackedBarChart = function(inputs){
+  console.log("Stacked chart being made!");
+  let labeling = inputs.credentials.labels.split(",");
+  console.log(labeling);
+  let numbers = inputs.credentials.data.split(",").map(Number);
+  console.log(numbers);
+  let completedBarChart = {
+    type: 'bar',
+    data: {
+      labels: labeling,
+      datasets:[{
+        label: 'Bar Graph',
+        data: numbers,
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255,255,255,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+          borderWidth: 1
+      }]
+    },
+    options: {
+        stacked: true,
+        scales: {
+            yAxes: [{
+              gridLines: {
+                color: '#d3d3d3',
+                zeroLineColor: '#d3d3d3'
+              },
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+
+  };
+  console.log(completedBarChart);
+  return completedBarChart;
+};
 
 
 let buildLineChart = function(inputs) {
@@ -213,6 +264,7 @@ let buildLineChart = function(inputs) {
 
 module.exports = {
   buildBarChart,
+  buildStackedBarChart,
   buildScatterChart,
   buildLineChart,
   buildBubbleChart
