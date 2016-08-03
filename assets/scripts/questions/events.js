@@ -13,7 +13,10 @@ let ctx = document.getElementById("myChart");
 
 Chart.defaults.global.defaultFontColor = '#FFF';
 Chart.defaults.global.defaultFontSize = 22;
-Chart.defaults.global.elements.line.borderColor = '#FFF';
+Chart.defaults.global.elements.line.backgroundColor = '#FFF';
+Chart.defaults.global.defaultColor = '#FFF';
+Chart.defaults.global.elements.point.backgroundColor = '#FFF';
+Chart.defaults.global.elements.point.radius = 7;
 
 
 const graphOptionToCreate = function(inputs) {
@@ -42,13 +45,13 @@ const onGraphCreation = function(event) {
   console.log(chartData);
   $('#chart-container').show();
   let myChart = new Chart(ctx, chartData);
+  myChart.update(ctx, chartData);
 };
 
 
 
 
 const onButtonClick = function(event) {
-  console.log("yo");
   event.preventDefault();
   let lookup = event.target.id;
   $('#app').html(questions(category[lookup]));
