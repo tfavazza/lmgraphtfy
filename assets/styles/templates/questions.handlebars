@@ -24,4 +24,10 @@
            class="btn btn-success graph-creation">
            <input hidden type="text" name="credentials[type]" value="{{../type}}">
   {{/each}}
-</form>
+  </form>
+  {{#each startOver}}
+    <input type="button"
+           id="{{this}}"
+           value="Start Over"
+           class="btn btn-primary question">
+  {{/each}}

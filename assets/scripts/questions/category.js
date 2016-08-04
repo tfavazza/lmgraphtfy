@@ -121,7 +121,10 @@ let bubbleChart= {
     },
   },
   submit: {
-    submit: "submit"
+    submit: "submit",
+  },
+  startOver: {
+    id: "questionOneYes",
   },
   type: "bubble"
 };
@@ -142,7 +145,10 @@ let barChart = {
   submit: {
     submit: "submit"
   },
-  type: "bar"
+  type: "bar",
+  startOver: {
+    id: "questionOneYes",
+  }
 };
 
 let columnChart = {
@@ -161,7 +167,10 @@ let columnChart = {
   submit: {
     submit: "submit"
   },
-  type: "bar"
+  type: "bar",
+  startOver: {
+    id: "questionOneYes",
+  }
 };
 
 let scatterPlot = {
@@ -180,7 +189,10 @@ let scatterPlot = {
   submit: {
     submit: "submit"
   },
-  type: "scatter"
+  type: "scatter",
+  startOver: {
+    id: "questionOneYes",
+  }
 };
 
 let lineChart = {
@@ -199,7 +211,10 @@ let lineChart = {
   submit: {
     submit: "submit"
   },
-  type: "line"
+  type: "line",
+  startOver: {
+    id: "questionOneYes",
+  }
 };
 
 let stackedBarChart = {
@@ -222,7 +237,10 @@ let stackedBarChart = {
   submit: {
     submit: "submit"
   },
-  type: "stackedBar"
+  type: "stackedBar",
+  startOver: {
+    id: "questionOneYes",
+  }
 };
 
 let stackedAreaChart = {
@@ -241,7 +259,10 @@ let stackedAreaChart = {
   submit: {
     submit: "submit"
   },
-  type: "stackedArea"
+  type: "stackedArea",
+  startOver: {
+    id: "questionOneYes",
+  }
 };
 
 

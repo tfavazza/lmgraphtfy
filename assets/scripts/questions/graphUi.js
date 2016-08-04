@@ -23,6 +23,13 @@ setTimeout(function() { $("#delete-message").hide(); }, 5000);
   $('#chart-container').hide();
 };
 
+const noGraph = () =>{
+  $("#delete-message").html('<br><center><div>Fine. Have a random cat gif instead.</div><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></center>');
+  $("#delete-message").show();
+setTimeout(function() { $("#delete-message").hide(); }, 5000);
+  $('#chart-container').hide();
+};
+
 const displayAllGraphsSuccess = (data) => {
   $('#graph-navigators, #chart-container').show();
   graphArray = data.graphs;
@@ -56,5 +63,6 @@ const displayAllGraphsSuccess = (data) => {
 module.exports = {
   saveGraphSuccess,
   deleteGraphSuccess,
-  displayAllGraphsSuccess
+  displayAllGraphsSuccess,
+  noGraph
 };

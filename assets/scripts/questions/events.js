@@ -72,6 +72,9 @@ const onButtonClick = function(event) {
   let lookup = event.target.id;
   $('#app').html(questions(category[lookup]));
   $('.question').on('click', onButtonClick);
+  $('#questionOneYes').on('click', function(){
+  $('#chart-container, #save-container').hide();
+  });
 };
 
 const onSaveGraph = function(event) {
@@ -130,6 +133,7 @@ const addHandlers = () => {
   $('#my-graphs').on('click', onDisplayUsersGraphs);
   $('#edit-graph').on('click', onEditGraph);
   $('#delete-graph').on('click', onDeleteGraph);
+  $('#questionOneNo').on('click', graphUi.noGraph);
 };
 //
 module.exports = {
