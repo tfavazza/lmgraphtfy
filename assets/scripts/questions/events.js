@@ -10,12 +10,13 @@ const buildChart = require('../charts/build-charts.js');
 let Chart = require('../../../node_modules/chart.js');
 let ctx = document.getElementById("myChart");
 
+
 Chart.defaults.global.defaultFontColor = '#FFF';
 Chart.defaults.global.defaultFontSize = 16;
 Chart.defaults.global.defaultColor = '#FFF';
 Chart.defaults.global.elements.point.backgroundColor = '#28cbee';
 Chart.defaults.global.elements.point.radius = 7;
-
+Chart.defaults.global.responsive = true;
 let chartDataToSend;
 
 const graphOptionToCreate = function(inputs) {

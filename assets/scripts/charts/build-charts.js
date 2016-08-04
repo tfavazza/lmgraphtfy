@@ -36,8 +36,10 @@ let buildBarChart = function(inputs){
       }]
     },
     options: {
-        stacked: false, //flip this for stacked bar
-        scales: {
+      maintainAspectRatio: true,
+      responsive: true,
+      stacked: false, //flip this for stacked bar
+      scales: {
             yAxes: [{
               gridLines: {
                 color: '#d3d3d3',
@@ -74,6 +76,8 @@ let buildScatterChart = function(inputs) {
       }]
     },
     options: {
+      maintainAspectRatio: true,
+      responsive: true,
       showLines: false, //change this to true for line
       scales: {
         xAxes: [{
@@ -104,7 +108,6 @@ let buildScatterChart = function(inputs) {
   return completedScatterPlot;
 };
 
-
 let buildBubbleChart = function(inputs) {
   let xData = inputs.credentials.x.split(",").map(Number);
   let yData = inputs.credentials.y.split(",").map(Number);
@@ -129,6 +132,8 @@ let buildBubbleChart = function(inputs) {
       }]
     },
     options: {
+      maintainAspectRatio: true,
+      responsive: true,
       showLines: false, //change this to true for line
       scales: {
         xAxes: [{
@@ -215,6 +220,8 @@ let buildStackedBarChart = function(inputs){
     }]
     },
     options: {
+      maintainAspectRatio: true,
+      responsive: true,
         scales: {
             xAxes:[{
               stacked: true
@@ -257,6 +264,9 @@ let buildLineChart = function(inputs) {
       }]
     },
     options: {
+      maintainAspectRatio: true,
+      responsive: true,
+
       showLine: true,
       scales: {
         xAxes: [{
@@ -287,7 +297,6 @@ let buildLineChart = function(inputs) {
   return completedLinePlot;
 };
 
-
 let buildStackedAreaChart = function(inputs) {
   let xData = inputs.credentials.x.split(",").map(Number);
   let yData = inputs.credentials.y.split(",").map(Number);
@@ -308,6 +317,8 @@ let buildStackedAreaChart = function(inputs) {
       }]
     },
     options: {
+      maintainAspectRatio: true,
+      responsive: true,
       showLine: true,
       scales: {
         xAxes: [{
