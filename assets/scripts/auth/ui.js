@@ -31,6 +31,8 @@ const failure = (error) => {
 
 const signInSuccess = (data) => {
   app.user = data.user;
+  $('#error-message').hide();
+  $('.bd-sign-up-sign-in').modal('hide');
   console.log("Signed in!");
 };
 

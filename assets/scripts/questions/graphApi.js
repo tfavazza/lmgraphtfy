@@ -3,6 +3,9 @@
 const app = require('../app.js');
 
 const saveGraph = (data) => {
+  if(app.user === undefined){
+    $('#error-message').show("slow");
+  }
   return $.ajax({
     url: app.host + '/graphs/',
     method: "POST",
@@ -13,6 +16,7 @@ const saveGraph = (data) => {
     contentType: 'application/json',
     dataType: 'json'
   });
+
 };
 
 const displayAllGraphs = () => {
