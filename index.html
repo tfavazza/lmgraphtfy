@@ -9,23 +9,29 @@
 </head>
 
 <body class="container-fluid" style='background-color: indigo'>
+
+
+
+
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navigation">
-        <li>
-          <ul class="nav navbar-nav">lm<i>graph</i>tfy</ul>
-        </li>
+        <span>
+          <a href="http://tara.codes"><input value="Built by Tara!" class="navbar-brand nav-pills btn btn-default nav navbar-left"></input></a>
+        </span>
+        <ul class="nav navbar-nav navbar-right nav-pills">
+          <li>
+            <div class="btn-group" role="group">
+              <button id="all-graphs" type="button" class="nav-pills btn btn-default">Browse Graph Gallery</button>
+            </div>
+          </li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
             <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bd-sign-up-sign-in">
               <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
-                Sign Up
+                Sign Up or Sign In
               </a>
-            </button>
-          </li>
-          <li>
-            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bd-sign-up-sign-in">
-              Sign In
             </button>
           </li>
         </ul>
@@ -47,10 +53,20 @@
     </div>
   </center>
   <div id="delete-message"></div>
+  <div id="graph-navigators" hidden>
+    <button id="prev-graph" class="btn btn-default col-md-6">
+      Prev
+    </button>
+    <button id="next-graph" class="btn btn-default col-md-6">
+      Next
+    </button>
+  </div>
   <div id="chart-container" class="col-md-12" hidden>
-    <input type="submit" class="btn btn-success" value="Save Graph" id="save-graph">
-    <div id="edit-container" hidden><input type="submit" class="btn btn-warning" value="Edit Saved Graph" id="edit-graph">
-    <input id="delete-graph" type="submit" class="btn btn-danger" value="Delete Saved Graph"></div>
+    <div id="save-container" hidden><input type="submit" class="btn btn-success" value="Save Graph" id="save-graph"></div>
+    <div id="edit-container" hidden>
+      <input type="submit" class="btn btn-warning" value="Edit Saved Graph" id="edit-graph">
+      <input id="delete-graph" type="submit" class="btn btn-danger" value="Delete Saved Graph">
+    </div>
     <div id="message"></div>
     <canvas id="myChart" style="max-width:100"></canvas>
   </div>
@@ -68,7 +84,7 @@
         </ul>
         <!-- sign up tab -->
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane" id="profile">
+          <div role="tabpanel" class="tab-pane active" id="profile">
             <center>
               <form id="sign-up">
                 <input id="signup-email" type="text" name="credentials[email]" placeholder="Username">
@@ -87,6 +103,7 @@
               <form id="sign-in">
                 <input id="signin-email" type="text" name="credentials[email]" placeholder="Username">
                 <input id="signin-password" type="password" name="credentials[password]" placeholder="Password">
+                <br>
                 <input type="submit" class="btn btn-default" name="submit" value="Sign In">
                 <div class="error"></div>
               </form>

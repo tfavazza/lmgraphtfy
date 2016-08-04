@@ -60,7 +60,7 @@ const onGraphCreation = function(event) {
   let inputs = getFormFields(event.target);
   //chartDataToSend = inputs;
   let chartData = graphOptionToCreate(inputs);
-  $('#chart-container').show();
+  $('#chart-container, #save-container').show();
   let myChart = new Chart(ctx, chartData);
   myChart.destroy();
   myChart.update(ctx, chartData);
@@ -72,7 +72,6 @@ const onButtonClick = function(event) {
   $('#app').html(questions(category[lookup]));
   $('.question').on('click', onButtonClick);
 };
-    //  "graphJSON": JSON.stringify(chartDataToSend) <---if only grabbing inputs
 
 const onSaveGraph = function(event) {
   event.preventDefault();
