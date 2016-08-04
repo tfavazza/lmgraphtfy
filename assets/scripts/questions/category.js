@@ -241,7 +241,7 @@ let stackedAreaChart = {
   submit: {
     submit: "submit"
   },
-  type: "line"
+  type: "stackedArea"
 };
 
 

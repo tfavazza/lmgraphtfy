@@ -237,7 +237,6 @@ let buildStackedBarChart = function(inputs){
   return completedStackedBarChart;
 };
 
-
 let buildLineChart = function(inputs) {
   let xData = inputs.credentials.x.split(",").map(Number);
   let yData = inputs.credentials.y.split(",").map(Number);
@@ -289,10 +288,64 @@ let buildLineChart = function(inputs) {
 };
 
 
+let buildStackedAreaChart = function(inputs) {
+  let xData = inputs.credentials.x.split(",").map(Number);
+  let yData = inputs.credentials.y.split(",").map(Number);
+  let dataArray = [];
+  for(let i=0; i<xData.length; i++){
+    dataArray.push({
+      x: xData[i],
+      y: yData[i]
+    });
+  }
+  let completedStackedAreaChart = {
+    type: 'line',
+    borderColor: '#28cbee',
+    data: {
+      datasets: [{
+        label: 'Stacked Area Graph',
+        data: dataArray
+      }]
+    },
+    options: {
+      showLine: true,
+      scales: {
+        xAxes: [{
+          gridLines: {
+            color: '#d3d3d3',
+            zeroLineColor: '#d3d3d3'
+          },
+          type: 'linear',
+          position: 'bottom',
+          ticks: {
+            beginAtZero: true
+          }
+        }],
+        yAxes: [{
+          stacked: true,
+          gridLines: {
+            color:'#d3d3d3',
+            zeroLineColor:'#d3d3d3'
+          },
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+
+      }
+    }
+  };
+  console.log(completedStackedAreaChart);
+  return completedStackedAreaChart;
+};
+
+
+
 module.exports = {
   buildBarChart,
   buildStackedBarChart,
   buildScatterChart,
   buildLineChart,
-  buildBubbleChart
+  buildBubbleChart,
+  buildStackedAreaChart
 };

@@ -47,6 +47,10 @@ const graphOptionToCreate = function(inputs) {
       charts = buildChart.buildStackedBarChart(inputs);
       chartDataToSend = JSON.stringify(charts);
       break;
+    case 'stackedArea':
+      charts= buildChart.buildStackedAreaChart(inputs);
+      chartDataToSend = JSON.stringify(charts);
+      break;
     default:
       console.log('frown');
       break;
