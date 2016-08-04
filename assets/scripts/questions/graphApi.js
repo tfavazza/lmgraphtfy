@@ -53,7 +53,7 @@ const editGraph = (data) => {
       Authorization: 'Token token=' + app.user.token,
     },
     contentType: 'application/json',
-    data: data,
+    data: JSON.stringify(data),
     dataType: 'json'
   });
 };
