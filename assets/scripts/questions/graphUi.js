@@ -26,15 +26,26 @@ setTimeout(function() { $("#delete-message").hide(); }, 5000);
 const displayAllGraphsSuccess = (data) => {
   $('#graph-navigators, #chart-container').show();
   graphArray = data.graphs;
+  let counter = 0;
   console.log(graphArray[1].graphJSON);
   $('#next-graph').on('click', function(){
-    let parsed = JSON.parse(graphArray[1].graphJSON);
+    if(counter < graphArray.length-1){
+      counter++;}
+      else {
+        counter = 0;
+      }
+    let parsed = JSON.parse(graphArray[counter].graphJSON);
     let myChart = new Chart(ctx, parsed);
     myChart.destroy();
     myChart.update(ctx, parsed);
   });
   $('#prev-graph').on('click', function(){
-    let parsed = JSON.parse(graphArray[0].graphJSON);
+    if(counter > 0){
+      counter--;}
+      else {
+        counter = graphArray.length -1;
+      }
+    let parsed = JSON.parse(graphArray[counter].graphJSON);
     let myChart = new Chart(ctx, parsed);
     myChart.destroy();
     myChart.update(ctx, parsed);
