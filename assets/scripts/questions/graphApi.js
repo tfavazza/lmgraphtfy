@@ -37,7 +37,7 @@ const displayUsersGraphs = () => {
 
 const deleteGraph = () => {
   return $.ajax({
-    url: app.host + '/graphs/' + app.user.graphs.id,
+    url: app.host + '/graphs/' + app.user.graph.id,
     method: "DELETE",
     headers: {
       Authorization: 'Token token=' + app.user.token,
@@ -50,10 +50,11 @@ const editGraph = (data) => {
     url: app.host + '/graphs/' + app.user.graph.id,
     method: "PATCH",
     headers: {
-      'Content-Type': 'application/json',
       Authorization: 'Token token=' + app.user.token,
     },
+    contentType: 'application/json',
     data: data,
+    dataType: 'json'
   });
 };
 

@@ -1,8 +1,6 @@
 'use strict';
 //
 const getFormFields = require('../../../lib/get-form-fields');
-
-const app = require('../app.js');
 const graphApi = require('./graphApi');
 const graphUi = require('./graphUi');
 //const index = require('../index.js');
@@ -14,7 +12,6 @@ let ctx = document.getElementById("myChart");
 
 Chart.defaults.global.defaultFontColor = '#FFF';
 Chart.defaults.global.defaultFontSize = 16;
-//Chart.defaults.global.elements.line.backgroundColor;
 Chart.defaults.global.defaultColor = '#FFF';
 Chart.defaults.global.elements.point.backgroundColor = '#28cbee';
 Chart.defaults.global.elements.point.radius = 7;
@@ -58,7 +55,6 @@ const graphOptionToCreate = function(inputs) {
   return charts;
 };
 
-
 const onGraphCreation = function(event) {
   event.preventDefault();
   let inputs = getFormFields(event.target);
@@ -69,7 +65,6 @@ const onGraphCreation = function(event) {
   myChart.destroy();
   myChart.update(ctx, chartData);
 };
-
 
 const onButtonClick = function(event) {
   event.preventDefault();
@@ -93,6 +88,26 @@ const onSaveGraph = function(event) {
   .fail(graphUi.SaveGraphFailure);
 };
 
+const onEditGraph = function(event) {
+  event.preventDefault();
+  let chartDataFormatted = {
+    "graph": {
+      "graphJSON": chartDataToSend
+    }
+  };
+  console.log(chartDataFormatted);
+  graphApi.editGraph(chartDataFormatted)
+  .done(graphUi.editGraphSuccess)
+  .fail(graphUi.ediGraphFailure);
+};
+
+const onDeleteGraph = function(event) {
+  event.preventDefault();
+  graphApi.deleteGraph()
+  .done(graphUi.deleteGraphSuccess)
+  .fail(graphUi.deleteGraphFailure);
+};
+
 const onDisplayAllGraphs = function(event) {
   event.preventDefault();
   graphApi.displayAllGraphs()
@@ -113,6 +128,8 @@ const addHandlers = () => {
   $('#save-graph').on('click', onSaveGraph);
   $('#all-graphs').on('click', onDisplayAllGraphs);
   $('#my-graphs').on('click', onDisplayUsersGraphs);
+  $('#edit-graph').on('click', onEditGraph);
+  $('#delete-graph').on('click', onDeleteGraph);
 };
 //
 module.exports = {
