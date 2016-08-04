@@ -43,6 +43,10 @@ const graphOptionToCreate = function(inputs) {
       charts = buildChart.buildBubbleChart(inputs);
       chartDataToSend = JSON.stringify(charts);
       break;
+    case 'stackedBar':
+      charts = buildChart.buildStackedBarChart(inputs);
+      chartDataToSend = JSON.stringify(charts);
+      break;
     default:
       console.log('frown');
       break;

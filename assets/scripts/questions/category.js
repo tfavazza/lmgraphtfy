@@ -56,16 +56,16 @@ let relational = {
 };
 
 let composition = {
-  h1: "How many variables do you have?",
+  h1: "Is your data static, or over time?",
   class: "question",
   buttons: {
     button1: {
-      label: "Two variables",
-      id: "twoVariablesComposition"
+      label: "Static",
+      id: "stackedBarChart"
     },
     button2: {
-      label: "Three variables",
-      id: "threeVariablesComposition"
+      label: "Over Time",
+      id: "stackedAreaChart"
     }
   }
 };
@@ -147,7 +147,7 @@ let barChart = {
 
 let columnChart = {
   class: "answer",
-  h1: "You need a Column Graph!",
+  h1: "You need a Bar Graph!",
   form: {
     form1: {
       label: "X axis data, separated by commas:",
@@ -202,6 +202,48 @@ let lineChart = {
   type: "line"
 };
 
+let stackedBarChart = {
+  class: "answer",
+  h1: "You need a Stacked Bar Graph!",
+  form: {
+    form1: {
+      label: "Bar buckets, separated by commas:",
+      id: "buckets"
+    },
+    form2: {
+      label: "Categories, separated by commas:",
+      id: "categories"
+    },
+    form3: {
+      label: "Data for each category in bucket, separted by commas:",
+      id: "data",
+    }
+  },
+  submit: {
+    submit: "submit"
+  },
+  type: "stackedBar"
+};
+
+let stackedAreaChart = {
+  class: "answer",
+  h1: "You should use a Stacked Area Graph!",
+  form: {
+    form1: {
+      label: "X axis data, separated by commas:",
+      id: "x"
+    },
+    form2: {
+      label: "Y axis data, separated by commas:",
+      id: "y"
+    },
+  },
+  submit: {
+    submit: "submit"
+  },
+  type: "line"
+};
+
 
 module.exports = {
   questionOneYes,
@@ -214,6 +256,8 @@ module.exports = {
   oneVariablesDistribution,
   columnChart,
   lineChart,
-  bubbleChart
+  bubbleChart,
+  stackedBarChart,
+  stackedAreaChart
 
 };
