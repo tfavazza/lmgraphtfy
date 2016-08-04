@@ -100,7 +100,6 @@ let oneVariablesDistribution = {
   }
 };
 
-
 //begin graph creation area
 
 let bubbleChart= {
