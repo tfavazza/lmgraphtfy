@@ -4,7 +4,7 @@ const app = require('../app.js');
 
 const saveGraph = (data) => {
   if(app.user === undefined){
-    $('#error-message').show("slow");
+    $('#message').html("You need to sign in to save");
   }
   return $.ajax({
     url: app.host + '/graphs/',
