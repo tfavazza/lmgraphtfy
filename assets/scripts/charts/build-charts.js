@@ -1,14 +1,12 @@
 'use strict';
 
 
-
+//original verison had an Object premade with shared variables, but
+//ChartJS failed to properly render. Lots of repeated code here.
 
 let buildBarChart = function(inputs){
-  console.log("Bar chart being made!");
   let labeling = inputs.credentials.labels.split(",");
-  console.log(labeling);
   let numbers = inputs.credentials.data.split(",").map(Number);
-  console.log(numbers);
   let completedBarChart = {
     type: 'bar',
     data: {
@@ -53,7 +51,6 @@ let buildBarChart = function(inputs){
     }
 
   };
-  console.log(completedBarChart);
   return completedBarChart;
 };
 
@@ -104,7 +101,6 @@ let buildScatterChart = function(inputs) {
       }
     }
   };
-  console.log(completedScatterPlot);
   return completedScatterPlot;
 };
 
@@ -160,18 +156,13 @@ let buildBubbleChart = function(inputs) {
       }
     }
   };
-  console.log(completedBubbleChart);
   return completedBubbleChart;
 };
 
 let buildStackedBarChart = function(inputs){
-  console.log("Stacked chart being made!");
   let labeling = inputs.credentials.buckets.split(",");
-  console.log(labeling);
   let categories = inputs.credentials.categories.split(",");
-  console.log(categories);
   let numbers = inputs.credentials.data.split(",").map(Number);
-  console.log(numbers);
 
   let completedStackedBarChart = {
     type: 'bar',
@@ -240,7 +231,6 @@ let buildStackedBarChart = function(inputs){
     }
 
   };
-  console.log(completedStackedBarChart);
   return completedStackedBarChart;
 };
 
@@ -293,7 +283,6 @@ let buildLineChart = function(inputs) {
       }
     }
   };
-  console.log(completedLinePlot);
   return completedLinePlot;
 };
 
@@ -346,11 +335,8 @@ let buildStackedAreaChart = function(inputs) {
       }
     }
   };
-  console.log(completedStackedAreaChart);
   return completedStackedAreaChart;
 };
-
-
 
 module.exports = {
   buildBarChart,

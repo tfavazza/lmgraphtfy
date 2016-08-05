@@ -8,15 +8,6 @@ const anySuccess = () => {
   $('.error').hide();
 };
 
-const success = (data) => {
-  anySuccess();
-  if (data) {
-    //console.log(data);
-  } else {
-    //console.log('Success');
-  }
-};
-
 const changePasswordSuccess = () => {
   anySuccess();
   $('#password-old, #password-new').val("");
@@ -33,21 +24,20 @@ const signInSuccess = (data) => {
   app.user = data.user;
   $('#message').html('');
   $('.bd-sign-up-sign-in').modal('hide');
-  console.log("Signed in!");
 };
 
 const signUpSuccess = () => {
+  $('#signin-email').val($('#signup-email').val());
+  $('#signin-password').val($('#signup-password').val());
+  $('#sign-in').submit();
+  $('#signin-email, #signup-email, #signin-password, #signup-password, #signup_passwordconf').val('');
 };
-
 
 const signOutSuccess = () => {
 };
 
 
-
-
 module.exports = {
-  success,
   failure,
   signInSuccess,
   signOutSuccess,

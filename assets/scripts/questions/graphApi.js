@@ -58,7 +58,6 @@ const editGraph = (data) => {
   });
 };
 
-
 module.exports = {
   saveGraph,
   deleteGraph,

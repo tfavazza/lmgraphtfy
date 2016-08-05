@@ -264,7 +264,6 @@ let stackedAreaChart = {
   }
 };
 
-
 module.exports = {
   questionOneYes,
   composition,
