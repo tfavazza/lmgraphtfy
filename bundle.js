@@ -71,11 +71,6 @@ webpackJsonp([0],[
 	  api.signIn(data).done(ui.signInSuccess).fail(ui.failure);
 	};
 
-	var onSignOut = function onSignOut(event) {
-	  event.preventDefault();
-	  api.signOut().done(ui.signOutSuccess).fail(ui.failure);
-	};
-
 	var onChangePassword = function onChangePassword(event) {
 	  event.preventDefault();
 	  var data = getFormFields(event.target);
@@ -85,7 +80,6 @@ webpackJsonp([0],[
 	var addHandlers = function addHandlers() {
 	  $('#sign-up').on('submit', onSignUp);
 	  $('#sign-in').on('submit', onSignIn);
-	  $('#sign-out').on('submit', onSignOut);
 	  $('#change-password').on('submit', onChangePassword);
 	};
 	//
@@ -231,7 +225,7 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	var app = __webpack_require__(7);
-	//const api = require('./api.js');
+	var api = __webpack_require__(6);
 	//const example = require('../example.js');
 
 	var anySuccess = function anySuccess() {
@@ -243,16 +237,30 @@ webpackJsonp([0],[
 	  $('#password-old, #password-new').val("");
 	};
 
+	var signOutSuccess = function signOutSuccess() {
+	  app.user = null;
+	  $('#sign-out-button').hide();
+	  $('#sign-in-button').show();
+	};
+
 	var failure = function failure(error) {
 	  $('.error').show();
 	  $('.error').text("I'm sorry, something went wrong.");
 	  console.error(error);
 	};
 
+	var onSignOut = function onSignOut(event) {
+	  event.preventDefault();
+	  api.signOut().done(signOutSuccess).fail(failure);
+	};
+
 	var signInSuccess = function signInSuccess(data) {
 	  app.user = data.user;
 	  $('#message').html('');
 	  $('.bd-sign-up-sign-in').modal('hide');
+	  $('#sign-out-button').show();
+	  $('#sign-in-button').hide();
+	  $('#sign-out').on('click', onSignOut);
 	};
 
 	var signUpSuccess = function signUpSuccess() {
@@ -262,12 +270,9 @@ webpackJsonp([0],[
 	  $('#signin-email, #signup-email, #signin-password, #signup-password, #signup_passwordconf').val('');
 	};
 
-	var signOutSuccess = function signOutSuccess() {};
-
 	module.exports = {
 	  failure: failure,
 	  signInSuccess: signInSuccess,
-	  signOutSuccess: signOutSuccess,
 	  signUpSuccess: signUpSuccess,
 	  changePasswordSuccess: changePasswordSuccess
 	};
@@ -352,7 +357,7 @@ webpackJsonp([0],[
 	  $('#app').html(questions(category[lookup]));
 	  $('.question').on('click', onButtonClick);
 	  $('#questionOneYes').on('click', function () {
-	    $('#chart-container, #save-container').hide();
+	    $('#chart-container, #graph-navigators, #save-container').hide();
 	  });
 	};
 
@@ -364,7 +369,7 @@ webpackJsonp([0],[
 	    }
 	  };
 	  chartDataFormatted = JSON.stringify(chartDataFormatted);
-	  graphApi.saveGraph(chartDataFormatted).done(graphUi.saveGraphSuccess).fail(graphUi.SaveGraphFailure);
+	  graphApi.saveGraph(chartDataFormatted).done(graphUi.saveGraphSuccess).fail(graphUi.saveGraphFailure);
 	};
 
 	var onEditGraph = function onEditGraph(event) {
@@ -417,7 +422,7 @@ webpackJsonp([0],[
 	var app = __webpack_require__(7);
 
 	var saveGraph = function saveGraph(data) {
-	  if (app.user === undefined) {
+	  if (app.user === undefined || app.user === null) {
 	    $('#message').html("You need to sign in to save");
 	  }
 	  return $.ajax({
@@ -497,6 +502,10 @@ webpackJsonp([0],[
 	  $('#edit-container').show();
 	};
 
+	var saveGraphFailure = function saveGraphFailure() {
+	  $("#message").html("You need to sign in first");
+	};
+
 	var deleteGraphSuccess = function deleteGraphSuccess() {
 	  $("#delete-message").html("Graph Deleted");
 	  $("#delete-message").show();
@@ -517,6 +526,7 @@ webpackJsonp([0],[
 
 	var displayAllGraphsSuccess = function displayAllGraphsSuccess(data) {
 	  $('#graph-navigators, #chart-container').show();
+	  $('#save-container, #edit-container').hide();
 	  graphArray = data.graphs;
 	  var counter = 0;
 	  $('#next-graph').on('click', function () {
@@ -545,6 +555,7 @@ webpackJsonp([0],[
 
 	module.exports = {
 	  saveGraphSuccess: saveGraphSuccess,
+	  saveGraphFailure: saveGraphFailure,
 	  deleteGraphSuccess: deleteGraphSuccess,
 	  displayAllGraphsSuccess: displayAllGraphsSuccess,
 	  noGraph: noGraph
