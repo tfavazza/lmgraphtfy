@@ -27,13 +27,24 @@
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target=".bd-sign-up-sign-in">
-              <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
+          <div id="sign-in-button">
+            <li>
+              <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target=".bd-sign-up-sign-in">
+                <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
                 Sign Up or Sign In
               </a>
-            </button>
-          </li>
+              </button>
+            </li>
+          </div>
+          <div id="sign-out-button" hidden>
+            <li>
+              <button id="sign-out" type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target=".bd-sign-up-sign-in">
+                <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
+                SignOut
+              </a>
+              </button>
+            </li>
+          </div>
         </ul>
       </div>
     </div>
@@ -45,7 +56,7 @@
     <button id="next-graph" class="btn btn-default col-md-2 navbar-btn">
       Next
     </button>
-</nav>
+  </nav>
 
   <h1>lm<i>graph</i>tfy</h1>
   <center>
@@ -56,13 +67,16 @@
           <input type="submit" value="Yes" id="questionOneYes" class="btn-lg btn btn-success question">
         </div>
         <div class="col-md-2">
-          <input type="submit" value="No" id="questionOneNo" class="btn-lg btn btn-danger question"></div>
+          <input type="submit" value="No" id="questionOneNo" class="btn-lg btn btn-danger question">
+        </div>
       </form>
     </div>
   </center>
   <div id="delete-message"></div>
   <div id="chart-container" class="col-md-12" hidden>
-    <div id="save-container" hidden><input type="submit" class="btn btn-success" value="Save Graph" id="save-graph"></div>
+    <div id="save-container" hidden>
+      <input type="submit" class="btn btn-success" value="Save Graph" id="save-graph">
+    </div>
     <div id="edit-container" hidden>
       <input type="submit" class="btn btn-warning" value="Edit Saved Graph" id="edit-graph">
       <input id="delete-graph" type="submit" class="btn btn-danger" value="Delete Saved Graph">

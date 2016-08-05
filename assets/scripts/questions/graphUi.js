@@ -11,6 +11,10 @@ const saveGraphSuccess = (data) => {
   $('#edit-container').show();
 };
 
+const saveGraphFailure = () =>{
+  $("#message").html("You need to sign in first");
+};
+
 const deleteGraphSuccess = ()=> {
   $("#delete-message").html("Graph Deleted");
   $("#delete-message").show();
@@ -27,6 +31,7 @@ const noGraph = () =>{
 
 const displayAllGraphsSuccess = (data) => {
   $('#graph-navigators, #chart-container').show();
+  $('#save-container, #edit-container').hide();
   graphArray = data.graphs;
   let counter = 0;
   $('#next-graph').on('click', function(){
@@ -55,6 +60,7 @@ const displayAllGraphsSuccess = (data) => {
 
 module.exports = {
   saveGraphSuccess,
+  saveGraphFailure,
   deleteGraphSuccess,
   displayAllGraphsSuccess,
   noGraph

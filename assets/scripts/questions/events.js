@@ -49,7 +49,7 @@ const graphOptionToCreate = function(inputs) {
       chartDataToSend = JSON.stringify(charts);
       break;
     default:
-      $("#error").html("Something went wrong, please start over")
+      $("#error").html("Something went wrong, please start over");
       break;
   }
   return charts;
@@ -72,7 +72,7 @@ const onButtonClick = function(event) {
   $('#app').html(questions(category[lookup]));
   $('.question').on('click', onButtonClick);
   $('#questionOneYes').on('click', function(){
-  $('#chart-container, #save-container').hide();
+  $('#chart-container, #graph-navigators, #save-container').hide();
   });
 };
 
@@ -86,7 +86,7 @@ const onSaveGraph = function(event) {
   chartDataFormatted = JSON.stringify(chartDataFormatted);
   graphApi.saveGraph(chartDataFormatted)
   .done(graphUi.saveGraphSuccess)
-  .fail(graphUi.SaveGraphFailure);
+  .fail(graphUi.saveGraphFailure);
 };
 
 const onEditGraph = function(event) {
