@@ -3,7 +3,7 @@
 const app = require('../app.js');
 
 const saveGraph = (data) => {
-  if(app.user === undefined){
+  if(app.user === undefined || app.user === null){
     $('#message').html("You need to sign in to save");
   }
   return $.ajax({

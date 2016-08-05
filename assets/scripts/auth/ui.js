@@ -1,7 +1,7 @@
 'use strict';
 
 const app = require('../app.js');
-//const api = require('./api.js');
+const api = require('./api.js');
 //const example = require('../example.js');
 
 const anySuccess = () => {
@@ -13,10 +13,23 @@ const changePasswordSuccess = () => {
   $('#password-old, #password-new').val("");
 };
 
+const signOutSuccess = () => {
+  app.user = null;
+  $('#sign-out-button').hide();
+  $('#sign-in-button').show();
+};
+
 const failure = (error) => {
   $('.error').show();
   $('.error').text("I'm sorry, something went wrong.");
   console.error(error);
+};
+
+const onSignOut = (event) => {
+  event.preventDefault();
+  api.signOut()
+  .done(signOutSuccess)
+  .fail(failure);
 };
 
 
@@ -24,6 +37,9 @@ const signInSuccess = (data) => {
   app.user = data.user;
   $('#message').html('');
   $('.bd-sign-up-sign-in').modal('hide');
+  $('#sign-out-button').show();
+  $('#sign-in-button').hide();
+  $('#sign-out').on('click', onSignOut);
 };
 
 const signUpSuccess = () => {
@@ -33,14 +49,10 @@ const signUpSuccess = () => {
   $('#signin-email, #signup-email, #signin-password, #signup-password, #signup_passwordconf').val('');
 };
 
-const signOutSuccess = () => {
-};
-
 
 module.exports = {
   failure,
   signInSuccess,
-  signOutSuccess,
   signUpSuccess,
   changePasswordSuccess,
 };
