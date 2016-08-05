@@ -3,13 +3,14 @@
 const getFormFields = require('../../../lib/get-form-fields');
 const graphApi = require('./graphApi');
 const graphUi = require('./graphUi');
-//const index = require('../index.js');
 const category = require('./category.js');
 const questions = require('../../styles/templates/questions.handlebars');
 const buildChart = require('../charts/build-charts.js');
 let Chart = require('../../../node_modules/chart.js');
 let ctx = document.getElementById("myChart");
 
+//same problem that buildChartX had here. if these are declared in
+//bracked form they're not applied properly
 
 Chart.defaults.global.defaultFontColor = '#FFF';
 Chart.defaults.global.defaultFontSize = 16;
@@ -24,12 +25,10 @@ const graphOptionToCreate = function(inputs) {
   switch(inputs.credentials.type) {
     case 'bar':
     case 'column':
-    console.log("making a bar chart!");
      charts = buildChart.buildBarChart(inputs);
      chartDataToSend = JSON.stringify(charts);
      break;
     case 'line':
-      console.log("Line charts?");
       charts = buildChart.buildLineChart(inputs);
       chartDataToSend = JSON.stringify(charts);
       break;
@@ -50,7 +49,7 @@ const graphOptionToCreate = function(inputs) {
       chartDataToSend = JSON.stringify(charts);
       break;
     default:
-      console.log('frown');
+      $("#error").html("Something went wrong, please start over")
       break;
   }
   return charts;
@@ -85,7 +84,6 @@ const onSaveGraph = function(event) {
     }
   };
   chartDataFormatted = JSON.stringify(chartDataFormatted);
-  console.log(chartDataFormatted);
   graphApi.saveGraph(chartDataFormatted)
   .done(graphUi.saveGraphSuccess)
   .fail(graphUi.SaveGraphFailure);
@@ -98,7 +96,6 @@ const onEditGraph = function(event) {
       "graphJSON": chartDataToSend
     }
   };
-  console.log(chartDataFormatted);
   graphApi.editGraph(chartDataFormatted)
   .done(graphUi.editGraphSuccess)
   .fail(graphUi.ediGraphFailure);

@@ -3,8 +3,6 @@
 const app = require('../app.js');
 
 const signUp = (data) => {
-  console.log("Hi");
-  console.log(app.host);
   return $.ajax({
     url: app.host + '/sign-up/',
     method: "POST",
