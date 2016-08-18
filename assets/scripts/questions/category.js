@@ -7,19 +7,23 @@ let questionOneYes = {
   buttons: {
     button1: {
       label: "Comparison",
-      id: "comparison"
+      id: "comparison",
+      hover: "test"
     },
     button2: {
       label: "Relational",
-      id: "relational"
+      id: "relational",
+      hover: "test2"
     },
     button3: {
       label: "Composition",
-      id: "composition"
+      id: "composition",
+      hover: "test three"
     },
     button4: {
       label: "Distribution",
-      id: "distribution"
+      id: "distribution",
+      hover: "test 4"
     }
   }
 };
