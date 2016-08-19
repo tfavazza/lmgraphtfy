@@ -4,12 +4,15 @@
   <div>
     {{#each buttons}}
     <div class="col-md-auto">
-      <input type="submit"
+      <a data-toggle='tooltip'
+      data-original-title='{{this.hover}}'>
+        <input type="submit"
            value="{{this.label}}"
            id="{{this.id}}"
-           class="btn-lg btn btn-success {{../class}} data-toggle='tooltip' data-placement='right'">
-           <div class="tooltip-inner">{{this.hover}}</div>
-    </div>
+           class="btn-lg btn btn-success
+           {{../class}} ">
+        </a>
+           </div>
     {{/each}}
     {{#each form}}
     <form id="make-a-graph" class="{{this.id}}">
@@ -19,7 +22,7 @@
            id="{{this.id}}"><br>
   </div>
     {{/each}}
-  {{#each suurebmit}}
+  {{#each submit}}
     <input type="submit"
            value="{{this}}"
            class="btn btn-success graph-creation">

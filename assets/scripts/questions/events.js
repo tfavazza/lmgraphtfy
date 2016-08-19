@@ -70,6 +70,10 @@ const onButtonClick = function(event) {
   event.preventDefault();
   let lookup = event.target.id;
   $('#app').html(questions(category[lookup]));
+  $("[data-toggle='tooltip']").tooltip({
+    placement: 'right',
+
+  });
   $('.question').on('click', onButtonClick);
   $('#questionOneYes').on('click', function(){
   $('#chart-container, #graph-navigators, #save-container').hide();

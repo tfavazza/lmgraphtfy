@@ -8,22 +8,22 @@ let questionOneYes = {
     button1: {
       label: "Comparison",
       id: "comparison",
-      hover: "test"
+      hover: "Do you have multiple categories that you want to compare? (e.g. number of votes)"
     },
     button2: {
       label: "Relational",
       id: "relational",
-      hover: "test2"
+      hover: "Do you have two or more variables that might interact with each other? (e.g. ice cube size over time in the sun)"
     },
     button3: {
       label: "Composition",
       id: "composition",
-      hover: "test three"
+      hover: "Does your data describe sub-values for one big thing? (e.g. earning percentage of each product in a store)"
     },
     button4: {
       label: "Distribution",
       id: "distribution",
-      hover: "test 4"
+      hover: "Does your data describe related or unrelated information, usually over time.(e.g. number of bugs reported during each month of a beta)"
     }
   }
 };
