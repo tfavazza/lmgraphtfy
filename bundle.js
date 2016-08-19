@@ -355,6 +355,10 @@ webpackJsonp([0],[
 	  event.preventDefault();
 	  var lookup = event.target.id;
 	  $('#app').html(questions(category[lookup]));
+	  $("[data-toggle='tooltip']").tooltip({
+	    placement: 'right'
+
+	  });
 	  $('.question').on('click', onButtonClick);
 	  $('#questionOneYes').on('click', function () {
 	    $('#chart-container, #graph-navigators, #save-container').hide();
@@ -25180,19 +25184,23 @@ webpackJsonp([0],[
 	  buttons: {
 	    button1: {
 	      label: "Comparison",
-	      id: "comparison"
+	      id: "comparison",
+	      hover: "Do you have multiple categories that you want to compare? (e.g. number of votes)"
 	    },
 	    button2: {
 	      label: "Relational",
-	      id: "relational"
+	      id: "relational",
+	      hover: "Do you have two or more variables that might interact with each other? (e.g. ice cube size over time in the sun)"
 	    },
 	    button3: {
 	      label: "Composition",
-	      id: "composition"
+	      id: "composition",
+	      hover: "Does your data describe sub-values for one big thing? (e.g. earning percentage of each product in a store)"
 	    },
 	    button4: {
 	      label: "Distribution",
-	      id: "distribution"
+	      id: "distribution",
+	      hover: "Does your data describe related or unrelated information, usually over time.(e.g. number of bugs reported during each month of a beta)"
 	    }
 	  }
 	};
@@ -25463,13 +25471,15 @@ webpackJsonp([0],[
 	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data,blockParams,depths) {
 	    var alias1=container.lambda, alias2=container.escapeExpression;
 
-	  return "    <div class=\"col-md-auto\">\n      <input type=\"submit\"\n           value=\""
+	  return "    <div class=\"col-md-auto\">\n      <a data-toggle='tooltip'\n      data-original-title='"
+	    + alias2(alias1((depth0 != null ? depth0.hover : depth0), depth0))
+	    + "'>\n        <input type=\"submit\"\n           value=\""
 	    + alias2(alias1((depth0 != null ? depth0.label : depth0), depth0))
 	    + "\"\n           id=\""
 	    + alias2(alias1((depth0 != null ? depth0.id : depth0), depth0))
-	    + "\"\n           class=\"btn-lg btn btn-success "
+	    + "\"\n           class=\"btn-lg btn btn-success\n           "
 	    + alias2(alias1((depths[1] != null ? depths[1]["class"] : depths[1]), depth0))
-	    + "\">\n    </div>\n";
+	    + " \">\n        </a>\n           </div>\n";
 	},"3":function(container,depth0,helpers,partials,data) {
 	    var alias1=container.lambda, alias2=container.escapeExpression;
 
